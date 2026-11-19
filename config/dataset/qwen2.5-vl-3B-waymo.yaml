@@ -1,0 +1,23 @@
+name: qwen2.5-vl-3B-waymo
+description: Preprocessing dataset for AutoVLA with Qwen 2.5 VL 3B model on Waymo E2E sample dataset
+# mode (3Bモデルを指定)
+pretrained_model_path: Qwen/Qwen2.5-VL-3B-Instruct
+# training
+batch_size: 1
+num_workers: 4
+# dataset (コピーしたサンプルパスとvalスプリットを指定)
+dataset_name: waymo
+dataset_split: val
+dataset_path: ./dataset/waymo_e2e/sample
+# data frequency
+raw_images_freq: 10
+raw_trajectory_freq: 4
+scene_frame_interval: 20
+frame_shift: 10
+# model history and future length
+model_freq: 2
+model_his_frames: 9
+model_fut_frames: 10
+# inference
+inference_freq: 1
+inference_his_frames: 3

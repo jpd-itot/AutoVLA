@@ -3,8 +3,13 @@ export TOKENIZERS_PARALLELISM=false
 export TF_CPP_MIN_LOG_LEVEL=3
 export TF_ENABLE_ONEDNN_OPTS=0
 
-INCLUDE_COT=false
-CONFIG="dataset/qwen2.5-vl-72B-waymo"
+# ▼ この3行を追加（クォータ制限のない /dev/shm にモデルキャッシュと一時ファイルを逃がす）
+export HF_HOME=/dev/shm/hf_cache
+export TMPDIR=/dev/shm/tmp
+export HF_HUB_ENABLE_HF_TRANSFER=0
+
+INCLUDE_COT=true
+CONFIG="dataset/qwen2.5-vl-3B-waymo"
 OUTPUT_DIR="./dataset/waymo"
 
 if [ "$INCLUDE_COT" = true ]; then

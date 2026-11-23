@@ -9,7 +9,7 @@ class CoTAnnotationModel():
         self.vlm = Qwen2_5_VLForConditionalGeneration.from_pretrained(
                         model_path,
                         torch_dtype=torch.float16,
-                        attn_implementation="flash_attention_2",
+                        attn_implementation="sdpa",
                         device_map="auto"
                     )
         self.processor = AutoProcessor.from_pretrained(model_path)

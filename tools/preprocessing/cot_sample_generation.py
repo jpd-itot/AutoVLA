@@ -9,7 +9,7 @@ from datetime import datetime
 from tqdm import tqdm
 import json
 
-from dataset_utils.preprocessing.nuplan_dataset import NuplanCoTAnnotationDataset
+#from dataset_utils.preprocessing.nuplan_dataset import NuplanCoTAnnotationDataset
 from dataset_utils.preprocessing.waymo_e2e_dataset import WaymoE2ECoTAnnotationDataset
 from dataset_utils.preprocessing.cot_annotation_model import CoTAnnotationModel
 from transformers import AutoProcessor
@@ -47,9 +47,9 @@ if __name__ == "__main__":
     tokenizer = processor.tokenizer
     model = CoTAnnotationModel(config)
 
-    if dataset_name == "nuplan":
-        val_dataset = NuplanCoTAnnotationDataset(config, processor)
-    elif dataset_name == "waymo":
+    #if dataset_name == "nuplan":
+    #    val_dataset = NuplanCoTAnnotationDataset(config, processor)
+    if dataset_name == "waymo":
         val_dataset = WaymoE2ECoTAnnotationDataset(config, processor)
     else:
         raise ValueError(f"Invalid dataset name: {dataset_name}")
